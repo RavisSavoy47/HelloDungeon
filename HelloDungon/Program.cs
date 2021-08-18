@@ -14,13 +14,14 @@ namespace HelloDungeon
             int health = 100 / 2;
             //Increase health by regen amount
             health += healthRegen;
-            Console.WriteLine(health);
+            
+            
 
             int currectArea = 1;
             float damage = 10;
             float speed = 5;
             float range = 5;
-
+            bool playerIsAlive = true;
             bool gameOver = false;
             //Mana 
             int mana = 100 / 2;
@@ -29,6 +30,9 @@ namespace HelloDungeon
             //Character Classes
             int Gunslinger;
             int Brute;
+            
+            
+            
             
             //Run the Game
             game.Run();
