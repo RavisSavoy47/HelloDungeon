@@ -128,6 +128,7 @@ namespace HelloDungeon
             Console.Clear();
 
             
+
             
                 //Cave experience
                 Console.WriteLine("While traveling along you stumble across a cave!!" + "\n Do you wish to enter?" + " 1.Yes \n 2.No");
@@ -136,16 +137,16 @@ namespace HelloDungeon
                 if (input == "1" || input == "Yes")
                 {
                     Console.WriteLine("You eneter the cave and find a pack of wolves");
-                    Console.WriteLine("They attack killing you in a few seconds");
+                    Console.WriteLine("You escape with scratches and stumble into a village");
 
-                    vaildInputReceived = false;
+                    health -= 10;
                 }
 
                 else if (input == "2" || input == "No")
                 {
                     Console.WriteLine("You continue on your path finding a village.");
 
-                    vaildInputReceived = true;
+                    
                 }
 
                 else
@@ -153,47 +154,21 @@ namespace HelloDungeon
                     //...display error message
                     Console.WriteLine("Invalid Input");
 
-                    vaildInputReceived = false;
+                    
                 }
-
             
-
-           
+               
 
             //Village area start
             Console.WriteLine("You are approached by an old man." + "Welcome to Barenville");
             Console.WriteLine("I am the towns marshal you can call me by Walt" + "Their aint much in this town but we have all your needs");
 
-            int numberOfAttempts = 4;
+            int numberOfAttempts = 2;           
 
-            Console.WriteLine("A very old man with a monkey on his back approaches you." + "\n The monkey offers you imortality if you can solve a riddle in" + numberOfAttempts + " attempts");
-
-            Console.ReadKey();
-
-            for (int i = 0; i < numberOfAttempts; i++)
-            {
-                Console.Clear();
-                Console.WriteLine("What month of the year has 28 days?");
-                int attemptsRemaining = numberOfAttempts - i;
-                Console.WriteLine("Atempts Remaining: " + attemptsRemaining);
-                Console.Write(">");
-                input = Console.ReadLine();
-
-                if (input == "all of them")
-                {
-                    Console.WriteLine("Congrats! You've gained imortality!");
-                    break;
-                }
-
-                Console.WriteLine("Incorrect! The mokey laughs at you! It hurts..." + "\n you take 5 points of damage,");
-                health -= 5; 
-            }
-
-            Console.WriteLine("You are pulled into an alley way!" + "\n The person gives you the option to best him in a speed match based on how he looks is speed is around 15." 
+            Console.WriteLine("You are pulled into an alley way!" + "\n The person gives you the option to best him in a speed match based on how he looks his speed is around 15"
                 + "attempts");
             Console.ReadKey();
-
-            
+           
             for (int i = 0; i < numberOfAttempts; i++)
             {
                 Console.Clear();
@@ -212,6 +187,7 @@ namespace HelloDungeon
                 Console.WriteLine("Your perception is off a little their boy my speed is 50" + "\n you were no match for him");
                 health -= 9;
             }
+
 
 
         }
