@@ -6,6 +6,8 @@ namespace HelloDungeon
 {
     class Game
     { 
+
+
         public void Run()
         {
             //Intro to Game
@@ -28,15 +30,20 @@ namespace HelloDungeon
             int range = 15;
             int speed = 10;
             string characterClass = "";
-
             bool gameOver = false;
-           
-
             string input = "";
-            bool vaildInputReceived = false;
+          
 
+            //Makeing sure that the player can die
+            if (health == 0)
+            {
+                gameOver = true;
+            }
 
-            while (vaildInputReceived == false)
+            string stats;
+
+            bool vaildInput = false;
+            while (vaildInput == false)
             {
                 
                 //class options
@@ -55,7 +62,7 @@ namespace HelloDungeon
                     range = 15;
                     speed = 10;
 
-                    vaildInputReceived = true;
+                    vaildInput = true;
                 }
                 //If player selected the second option
                 else if (characterClass == "2" || characterClass == "Brute")
@@ -67,7 +74,7 @@ namespace HelloDungeon
                     range = 10;
                     speed = 15;
 
-                    vaildInputReceived = true;
+                    vaildInput = true;
                 }
                 //If neither are true
                 else
@@ -80,6 +87,9 @@ namespace HelloDungeon
               
             }
 
+
+
+            //display charcater stats
             Console.WriteLine("Your Charcater Stats\n");
             Console.WriteLine("Name: " + name);
             Console.WriteLine("Class " + characterClass);
@@ -91,14 +101,6 @@ namespace HelloDungeon
             Console.ReadKey();
 
             int currectArea = 1;
-
-            bool playerIsAlive = true;
-            
-
-            
-
-            //display charcater stats
-
 
             Console.ReadKey();
             Console.Clear();
@@ -127,43 +129,44 @@ namespace HelloDungeon
             Console.ReadKey();
             Console.Clear();
 
-            
 
-            
-                //Cave experience
-                Console.WriteLine("While traveling along you stumble across a cave!!" + "\n Do you wish to enter?" + " 1.Yes \n 2.No");
+            //Cave experience
+            Console.WriteLine("While traveling along you stumble across a cave!!" + "\n Do you wish to enter?" + " 1.Yes \n 2.No");
 
-                input = Console.ReadLine();
-                if (input == "1" || input == "Yes")
-                {
-                    Console.WriteLine("You eneter the cave and find a pack of wolves");
-                    Console.WriteLine("You escape with scratches and stumble into a village");
+            input = Console.ReadLine();
+            if (input == "1" || input == "Yes")
+            {
+                Console.WriteLine("You eneter the cave and find a pack of wolves");
+                Console.WriteLine("You escape with scratches and stumble into a village");
 
-                    health -= 10;
-                }
+                health -= 30;
+            }
 
-                else if (input == "2" || input == "No")
-                {
-                    Console.WriteLine("You continue on your path finding a village.");
+            else if (input == "2" || input == "No")
+            {
+                Console.WriteLine("You continue on your path finding a village.");
 
-                    
-                }
+            }
 
-                else
-                {
-                    //...display error message
-                    Console.WriteLine("Invalid Input");
+            else
+            {
+                //...display error message
+                Console.WriteLine("Invalid Input");
 
-                    
-                }
-            
-               
+            }
+
+            Console.Clear();
 
             //Village area start
             Console.WriteLine("You are approached by an old man." + "Welcome to Barenville");
             Console.WriteLine("I am the towns marshal you can call me by Walt" + "Their aint much in this town but we have all your needs");
+            Console.WriteLine("Many people live here their is a Quest Giver and a Shop keep her." + "\n If their is anything else you need just ask.");
 
-            int numberOfAttempts = 2;           
+            Console.ReadLine();
+            Console.Clear();
+
+            //First Stranger to challenge Player
+            int numberOfAttempts = 1;           
 
             Console.WriteLine("You are pulled into an alley way!" + "\n The person gives you the option to best him in a speed match based on how he looks his speed is around 15"
                 + "attempts");
@@ -184,9 +187,19 @@ namespace HelloDungeon
                     break;
                 }
 
-                Console.WriteLine("Your perception is off a little their boy my speed is 50" + "\n you were no match for him");
-                health -= 9;
+                Console.WriteLine("Your perception is off a little their boy my speed is 50." + "\n You were no match for him!");
+                health -= 30;
             }
+
+            Console.ReadLine();
+            Console.Clear();
+
+
+
+            //
+            
+
+
 
 
 
