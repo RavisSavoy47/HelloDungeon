@@ -6,21 +6,10 @@ namespace HelloDungeon
 {
     class Game
     { 
-
+       
 
         public void Run()
         {
-            //Intro to Game
-            string name = "Empty";
-            Console.WriteLine("Weclome to Waistlands");
-            Console.WriteLine("What is your Name");
-            name = Console.ReadLine();
-            Console.WriteLine("Hello " + name);
-            Console.WriteLine("This is a place ware you forge your own path");
-            string characterName = (name);
-                                         
-       
-        
             //Intitalize default health values
             int healthRegen = 50;
             int health = 100 / 2;
@@ -32,8 +21,7 @@ namespace HelloDungeon
             string characterClass = "";
             bool gameOver = false;
             string input = "";
-          
-
+            string write = "";
             //Makeing sure that the player can die
             if (health == 0)
             {
@@ -41,6 +29,18 @@ namespace HelloDungeon
             }
 
             string stats;
+
+            //Intro to Game
+            string name = "Empty";
+            Console.WriteLine("Weclome to Waistlands");
+            Console.WriteLine("What is your Name");
+            name = Console.ReadLine();
+            Console.WriteLine("Hello " + name);
+            Console.WriteLine("This is a place ware you forge your own path");
+            string characterName = (name);
+
+            Console.ReadKey();
+            Console.Clear();
 
             bool vaildInput = false;
             while (vaildInput == false)
@@ -96,14 +96,12 @@ namespace HelloDungeon
             Console.WriteLine("Health " + health);
             Console.WriteLine("Power " + damage);
             Console.WriteLine("Range " + range);
-            Console.WriteLine("Speed " + speed);
-
-            Console.ReadKey();
-
-            int currectArea = 1;
+            Console.WriteLine("Speed " + speed);      
 
             Console.ReadKey();
             Console.Clear();
+
+
 
             //Your first encounter
             Console.WriteLine("You've been approached by a traveler!!" + "\n They offer you a potion. Do you accept?" + "\n 1.Yes \n 2.No");
@@ -112,10 +110,10 @@ namespace HelloDungeon
 
             if (input == "1" || input == "Yes")
             {
-                Console.WriteLine("You have gained a potion.");               
+                Console.WriteLine("You have gained a potion.");
             }
 
-            else if(input == "2" || input == "No")
+            else if (input == "2" || input == "No")
             {
                 Console.WriteLine("Traveler forces you to take it.");
             }
@@ -129,59 +127,22 @@ namespace HelloDungeon
             Console.ReadKey();
             Console.Clear();
 
-
-            //Cave experience
-            Console.WriteLine("While traveling along you stumble across a cave!!" + "\n Do you wish to enter?" + " 1.Yes \n 2.No");
-
-            input = Console.ReadLine();
-            if (input == "1" || input == "Yes")
-            {
-                Console.WriteLine("You eneter the cave and find a pack of wolves");
-                Console.WriteLine("You escape with scratches and stumble into a village");
-
-                health -= 30;
-            }
-
-            else if (input == "2" || input == "No")
-            {
-                Console.WriteLine("You continue on your path finding a village.");
-
-            }
-
-            else
-            {
-                //...display error message
-                Console.WriteLine("Invalid Input");
-
-            }
-
-            Console.Clear();
-
-            //Village area start
-            Console.WriteLine("You are approached by an old man." + "Welcome to Barenville");
-            Console.WriteLine("I am the towns marshal you can call me by Walt" + "Their aint much in this town but we have all your needs");
-            Console.WriteLine("Many people live here their is a Quest Giver and a Shop keep her." + "\n If their is anything else you need just ask.");
-
-            Console.ReadLine();
-            Console.Clear();
-
             //First Stranger to challenge Player
-            int numberOfAttempts = 1;           
+            int numberOfAttempts = 1;
 
-            Console.WriteLine("You are pulled into an alley way!" + "\n The person gives you the option to best him in a speed match based on how he looks his speed is around 15"
-                + "attempts");
+            Console.WriteLine("You are tackled to the ground by a crazed man!" + "\n The man gives you the option to best him in a speed match based on how he looks his speed is around 15 speed");
             Console.ReadKey();
-           
+
             for (int i = 0; i < numberOfAttempts; i++)
             {
                 Console.Clear();
-                Console.WriteLine("Would you be able to best me?");
+                Console.WriteLine("Would you be able to best him?");
                 int attemptsRemaining = numberOfAttempts - i;
                 Console.WriteLine("Attempts Remaining: " + attemptsRemaining);
                 Console.Write(">");
                 input = Console.ReadLine();
 
-                if (input == "No")
+                if (input == "no")
                 {
                     Console.WriteLine("Good choice partner!");
                     break;
@@ -194,33 +155,53 @@ namespace HelloDungeon
             Console.ReadLine();
             Console.Clear();
 
-            //the first quest of your adventure
-            Console.WriteLine("Walking out of the alley you approuch the towns saloon." + "\n You find out that the bar keep is the towns Quest Giver.");
-            Console.WriteLine("You ask the bar keep if there are any quest that I can take?" + "\n Yes kind sir their is one quest avaiable at this moment.");
-            Console.WriteLine("Would you like to embark on this quest?" + "\n 1.yes \n 2.no");
-            Console.ReadLine();
 
-            if (input == "1" || input == "yes")
-            {
-                Console.WriteLine("Now that you have accepted this quest I would like you to talk to the shop keep at the end of the town she will tell you the rest.");          
-            }
-
-            else if (input == "2" || input == "No")
-            {
-                Console.WriteLine("Not much will happen sir but I will encourge you to talk to the shop keeper she might have something for your taste");
-            }
-
-            else
-            {
-                //...display error message
-                Console.WriteLine("Invalid Input");
-
-            }
-            Console.ReadLine();
+            //the village
+            Console.WriteLine("Welcome to the village of Bertane Im the town's Marshal you can call me by Will." + "\n If you keep walking you'll find the town saloon.");
+            Console.WriteLine("We have a Quest Giver at the Saloon");
+            Console.ReadKey();
             Console.Clear();
 
+            Console.WriteLine("Walking down the road you approuch the towns saloon." + "\n You find out that the bar keep is the towns Quest Giver.");
+            Console.WriteLine("You ask the bar keep if there are any quest that I can take?" + "\n Hi sir my name is Dave would you like to accept a quest?");
+            Console.WriteLine("Now that you have accepted this quest I would like you to talk to the shop keep at the end of the town she will tell you the rest.");
+            Console.WriteLine("You take the quest and walk down to the Fence to get directions.");
+
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.WriteLine("You approach the fence where the shop keep greets you." + "\n Weclome to the fence we have all you needs you may call me Shela.");
+            Console.WriteLine("Lots of people been telling me that your a travler but for my view you don't look the part." + "\n She gives you an upgraded weapon!");
+            damage += 30;
+            Console.WriteLine("With that you should have no problem with your quest.");
+
+            Console.Clear();
+
+            Console.WriteLine("Your Charcater Stats\n");
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("Class " + characterClass);
+            Console.WriteLine("Health " + health);
+            Console.WriteLine("Power " + damage);
+            Console.WriteLine("Range " + range);
+            Console.WriteLine("Speed " + speed);
+
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.WriteLine("The quest is to kill a pack of wolves that have been recently been causing trouble with our cattle.");
+            Console.WriteLine("To get to their den you walk east an cross over a river and their should be a cave near their.");
+            Console.WriteLine("You start your trip but Shela grabs you and gives you better clothes." + "\n Sorry I forgot to give you this now you're set.");
+            health += 50;
+
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.WriteLine("You thank her and walk east allong the way you find rusty bullets." + "\n Knowing that this might be a big fight you take your time getting their.");
+            Console.WriteLine("You walk along the wood bridge and you cant seem to find the cave!" + "\n Pushing over a large rock that was standing out their appears to be a cave underneath!");
 
 
+           
+            
 
 
 
