@@ -194,10 +194,39 @@ namespace HelloDungeon
             Console.ReadLine();
             Console.Clear();
 
+            //the first quest of your adventure
+            Console.WriteLine("Walking out of the alley you approuch the towns saloon." + "\n You find out that the bar keep is the towns Quest Giver.");
+            Console.WriteLine("You ask the bar keep if there are any quest that I can take?" + "\n Yes kind sir their is one quest avaiable at this moment.");
+            Console.WriteLine("Would you like to embark on this quest?" + "\n 1.yes \n 2.no");
+            Console.ReadLine();
+
+            if (input == "1" || input == "yes")
+            {
+                Console.WriteLine("Now that you have accepted this quest I would like you to talk to the shop keep at the end of the town she will tell you the rest.");          
+            }
+
+            else if (input == "2" || input == "No")
+            {
+                Console.WriteLine("Not much will happen sir but I will encourge you to talk to the shop keeper she might have something for your taste");
+            }
+
+            else
+            {
+                //...display error message
+                Console.WriteLine("Invalid Input");
+
+            }
+            Console.ReadLine();
+            Console.Clear();
 
 
-            //
-            
+
+
+
+
+
+
+
 
 
 
