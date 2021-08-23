@@ -8,3 +8,4 @@ This is a texted based game.
 - Download the newest viersion
 - Unzip file into own file
 - Run the .exe
+https://github.com/RavisSavoy47/HelloDungeon/releases/tag/v1.0
