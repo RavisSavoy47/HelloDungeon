@@ -16,6 +16,7 @@ namespace HelloDungeon
         bool gameOver = false;
         string name = "Empty";
 
+        bool inputReceived = false;
 
         public void Run()
         {
@@ -31,19 +32,20 @@ namespace HelloDungeon
             bool gameOver = false;
             string input = "";
             string write = "";
-            
-           
+
+
             //Makeing sure that the player can die
-            if (health == 0)
+            if (health <= 0)
             {
+
                 Console.WriteLine("HaHa! You died fool!");
-                gameOver = true;
-                
+                return;
+
             }
 
-            int GetInput(int description, string option1, string option2)
+            int GetInput(string description, string option1, string option2)
             {
-                string nput = "";
+                string input = ""; 
                 int inputReceived = 0;
 
                 while (!(inputReceived == 1 || inputReceived == 2))
@@ -77,6 +79,46 @@ namespace HelloDungeon
                 }
                 return inputReceived;
             }
+
+            bool gameContinue = true;
+            while (gameContinue)
+            {
+                intro();
+
+                Encounters1And2();
+
+                Village();
+
+                quest();
+
+                questBoss();
+
+                int choice = GetInput("Do you want to play again?", "yes", "no");
+                    
+                while (inputReceived == false)
+                {
+                    if (choice == 1)
+                    {
+                        Console.Clear();
+                        inputReceived = true;
+                    }
+                    
+                    else if (choice == 2)
+                    {
+
+                        break;
+                        inputReceived = true;
+                    }
+
+
+                }
+
+
+
+
+                gameContinue = false;
+            }
+
 
             string stats;
 
@@ -209,10 +251,10 @@ namespace HelloDungeon
                     health -= 30;
                 }
 
-                if (health == 0)
+                if (health <= 0)
                 {
                     Console.WriteLine("HaHa! You died fool!");
-                    gameOver = true;
+                    return;
 
                 }
 
@@ -223,6 +265,7 @@ namespace HelloDungeon
             
             void Village()
             {
+                string name = "Empty";
                 //the village
                 Console.WriteLine("Welcome to the village of Bertane Im the town's Marshal you can call me by Will." + "\n If you keep walking you'll find the town saloon.");
                 Console.WriteLine("We have a Quest Giver at the Saloon");
@@ -261,10 +304,10 @@ namespace HelloDungeon
                 Console.WriteLine("You start your trip but Shela grabs you and gives you better clothes." + "\n Sorry I forgot to give you this now you're set.");
                 health += 50;
 
-                if (health == 0)
+                if (health <= 0)
                 {
                     Console.WriteLine("HaHa! You died fool!");
-                    gameOver = true;
+                    return;
 
                 }
 
@@ -309,6 +352,7 @@ namespace HelloDungeon
                 Console.WriteLine("Knowing that you will have to fight that strange man you check your stats.");
                 Console.Clear();
 
+                string name = "Empty";
                 //show stats
                 Console.WriteLine("Your Charcater Stats\n");
                 Console.WriteLine("Name: " + name);
@@ -318,10 +362,10 @@ namespace HelloDungeon
                 Console.WriteLine("Range " + range);
                 Console.WriteLine("Speed " + speed);
 
-                if (health == 0)
+                if (health <= 0)
                 {
                     Console.WriteLine("HaHa! You died fool!");
-                    gameOver = true;
+                    return;
 
                 }
 
@@ -351,10 +395,13 @@ namespace HelloDungeon
 
                 else if (input == "2")
                 {
+                    string name = "name";
                     Console.WriteLine("You legs starts glowing and you make sure that your aim is right and dash into the man landing a brutral dropkick sending the man flying!");
                     Console.WriteLine("The man steps back up and comands the beast to attack and you get swiped across the room and breaking through a rock ");
                     health -= 60;
-                    Console.
+                    Console.WriteLine("The beast tries using a rock as a basketball and slams it down on name");
+                    health -= 200;
+                    Console.Clear();
                 }
 
                 else
@@ -363,16 +410,23 @@ namespace HelloDungeon
                     Console.WriteLine("Invalid Input");
                 }
 
-                if (health == 0)
+                if (health <= 0)
                 {
                     Console.WriteLine("HaHa! You died fool!");
-                    gameOver = true;
+                    return;
 
                 }
 
-                
+                Console.ReadKey();
+                Console.Clear();
+
+                Console.WriteLine("You take the cative and bring him back to the town's marshal");
+                Console.WriteLine("Thank you for ending the wolves rain of terror on the village and the man will be put on trial!");
+                Console.WriteLine("All the villagers come out of their home and rejoice with guns blazing!");
+
 
             }
+
 
            
 
