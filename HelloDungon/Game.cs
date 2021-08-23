@@ -32,7 +32,8 @@ namespace HelloDungeon
             bool gameOver = false;
             string input = "";
             string write = "";
-
+            int currentArea = 1;
+            bool playerIsAlive = false;
 
             //Makeing sure that the player can die
             if (health <= 0)
@@ -80,43 +81,68 @@ namespace HelloDungeon
                 return inputReceived;
             }
 
-            bool gameContinue = true;
-            while (gameContinue)
+            void DisplayMainMenu()
             {
-                intro();
+                int input = GetInput("Do you want to play again?", "yes", "no");
 
-                Encounters1And2();
-
-                Village();
-
-                quest();
-
-                questBoss();
-
-                int choice = GetInput("Do you want to play again?", "yes", "no");
-                    
-                while (inputReceived == false)
+                if (input == 1)
                 {
-                    if (choice == 1)
-                    {
-                        Console.Clear();
-                        inputReceived = true;
-                    }
+                    currentArea = 1;
+                    gameOver = false;
+                }
+
+                if (input == 2)
+                {
                     
-                    else if (choice == 2)
-                    {
-
-                        break;
-                        inputReceived = true;
-                    }
-
-
+                    gameOver = true;
                 }
 
 
+            }
 
+            void DisplayCurrentArea()
+            {
+                if(currentArea == 1)
+                {
+                    intro();
+                }
 
-                gameContinue = false;
+                if (currentArea == 2)
+                {
+                    Encounters1And2();
+                }
+
+                if (currentArea == 3)
+                {
+                    Village();
+                }
+
+                if (currentArea == 4)
+                {
+                    quest();
+
+                }
+
+                if (currentArea == 5)
+                {
+                    questBoss();
+                } 
+            }
+
+            //loop while game isn't over
+            while (!gameOver)
+            {   // Print the current area to the screen
+                DisplayCurrentArea();
+                //if the player lost or beat the game
+                if (playerIsAlive == false || currentArea ==3)
+                {//Print the main menu
+                    DisplayMainMenu();
+                }
+
+               else
+                {   //increment the current area
+                    currentArea++;
+                }
             }
 
 
@@ -251,12 +277,6 @@ namespace HelloDungeon
                     health -= 30;
                 }
 
-                if (health <= 0)
-                {
-                    Console.WriteLine("HaHa! You died fool!");
-                    return;
-
-                }
 
                 Console.ReadLine();
                 Console.Clear();
@@ -307,6 +327,7 @@ namespace HelloDungeon
                 if (health <= 0)
                 {
                     Console.WriteLine("HaHa! You died fool!");
+                    playerIsAlive = false;
                     return;
 
                 }
@@ -352,7 +373,7 @@ namespace HelloDungeon
                 Console.WriteLine("Knowing that you will have to fight that strange man you check your stats.");
                 Console.Clear();
 
-                string name = "Empty";
+                string name = "";
                 //show stats
                 Console.WriteLine("Your Charcater Stats\n");
                 Console.WriteLine("Name: " + name);
@@ -365,6 +386,7 @@ namespace HelloDungeon
                 if (health <= 0)
                 {
                     Console.WriteLine("HaHa! You died fool!");
+                    playerIsAlive = false;
                     return;
 
                 }
@@ -395,7 +417,7 @@ namespace HelloDungeon
 
                 else if (input == "2")
                 {
-                    string name = "name";
+                    string name = "";
                     Console.WriteLine("You legs starts glowing and you make sure that your aim is right and dash into the man landing a brutral dropkick sending the man flying!");
                     Console.WriteLine("The man steps back up and comands the beast to attack and you get swiped across the room and breaking through a rock ");
                     health -= 60;
@@ -413,6 +435,7 @@ namespace HelloDungeon
                 if (health <= 0)
                 {
                     Console.WriteLine("HaHa! You died fool!");
+                    playerIsAlive = false;
                     return;
 
                 }
