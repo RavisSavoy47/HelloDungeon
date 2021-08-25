@@ -6,35 +6,31 @@ namespace HelloDungeon
 {
     class Game
     {
-        int health;
-        int healthRegen;
-        int damage;
-        int range;
-        int speed;
+      
         string charcaterClass = "";
         string input = "";
         bool gameOver = false;
         string name = "Empty";
-
         bool inputReceived = false;
+
+        //Intitalize default health values
+        int healthRegen = 20;
+        int health = 100 / 2;
+        //Increase health by regen amount
+       
+            int damage = 20;
+        int range = 15;
+        int speed = 10;
+        string characterClass = "";
+
+        string write = "";
+        int currentArea = 1;
+        bool playerIsAlive = false;
+
 
         public void Run()
         {
-            //Intitalize default health values
-            int healthRegen = 20;
-            int health = 100 / 2;
-            //Increase health by regen amount
             health += healthRegen;
-            int damage = 20;
-            int range = 15;
-            int speed = 10;
-            string characterClass = "";
-            bool gameOver = false;
-            string input = "";
-            string write = "";
-            int currentArea = 1;
-            bool playerIsAlive = false;
-
             //Makeing sure that the player can die
             if (health <= 0)
             {
